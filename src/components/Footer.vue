@@ -1,27 +1,37 @@
 <template>
   <footer class="bg-gray-900 text-white">
-      <div class="border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <!-- Copyright -->
-            <div class="flex items-center space-x-4 text-gray-400">
-              <span>© {{ currentYear }} Maxime Heim. Tous droits réservés.</span>
+    <div class="border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <!-- Copyright -->
+          <div class="flex items-center space-x-4 text-gray-400">
+            <span>© {{ currentYear }} Maxime Heim. Tous droits réservés.</span>
+          </div>
+          <div v-for="link in socialLinks" :key="link.id"
+               class=" flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <a target="_blank" :href="link.url">
+            <div class="rounded-2xl bg-gradient-to-br p-1 text-white" :class="link.color">
+              <span class="inline-block px-3 py-1   text-sm font-medium">
+                  {{ link.name }}
+                </span>
             </div>
-
-            <!-- Tech Stack Badge -->
-            <div class="flex items-center space-x-2 text-gray-400 text-sm">
-              <span>Fait avec</span>
-              <div class="flex items-center space-x-1">
-                <span class="text-green-400">💚</span>
-                <span>Vue.js</span>
-              </div>
-              <span>&</span>
-              <div class="flex items-center space-x-1">
-                <span class="text-blue-400">🎨</span>
-                <span>Tailwind CSS</span>
-              </div>
+            </a>
+          </div>
+          <!-- Tech Stack Badge -->
+          <div class="flex items-center space-x-2 text-gray-400 text-sm">
+            <span>Fait avec</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-green-400">💚</span>
+              <span>Vue.js</span>
+            </div>
+            <span>&</span>
+            <div class="flex items-center space-x-1">
+              <span class="text-blue-400">🎨</span>
+              <span>Tailwind CSS</span>
             </div>
           </div>
+        </div>
+
 
         <!-- Back to Top Button -->
         <button
@@ -42,11 +52,7 @@
 <script setup>
 import {ref, computed, onMounted, onUnmounted} from 'vue'
 
-const newsletterEmail = ref('')
-const isSubscribing = ref(false)
 const showBackToTop = ref(false)
-const showModal = ref(false)
-const modalContent = ref({})
 
 const currentYear = computed(() => new Date().getFullYear())
 
@@ -54,57 +60,19 @@ const socialLinks = ref([
   {
     name: 'GitHub',
     url: 'https://github.com/maxime67',
-    icon: '💻',
-    color: 'bg-gray-700 hover:bg-gray-600'
+    color: 'from-blue-400 to-purple-700'
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/maxime-heim',
-    icon: '💼',
-    color: 'bg-blue-600 hover:bg-blue-500'
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/maxime_heim',
-    icon: '🐦',
-    color: 'bg-blue-400 hover:bg-blue-300'
+    url: 'https://www.linkedin.com/in/maxime-heim-482324264',
+    color: 'from-blue-500 to-purple-700'
   },
   {
     name: 'Email',
-    url: 'mailto:maxime.heim@example.com',
-    icon: '📧',
-    color: 'bg-red-600 hover:bg-red-500'
+    url: 'mailto:maxime.heim3@gmail.com',
+    color: 'from-blue-600 to-purple-800'
   }
 ])
-
-const quickLinks = ref([
-  {name: 'À propos', id: 'about'},
-  {name: 'Compétences', id: 'skills'},
-  {name: 'Expériences', id: 'experience'},
-  {name: 'Projets', id: 'projects'},
-  {name: 'Contact', id: 'contact'}
-])
-
-const services = ref([
-  'Conseil DevOps',
-  'Infrastructure Cloud',
-  'Développement Full-Stack',
-  'Automatisation CI/CD',
-  'Formation & Coaching'
-])
-
-const legalLinks = ref([
-  {name: 'Mentions légales', type: 'legal'},
-  {name: 'Politique de confidentialité', type: 'privacy'},
-  {name: 'Conditions d\'utilisation', type: 'terms'}
-])
-
-const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({behavior: 'smooth'})
-  }
-}
 
 const scrollToTop = () => {
   window.scrollTo({top: 0, behavior: 'smooth'})
@@ -112,46 +80,6 @@ const scrollToTop = () => {
 
 const handleScroll = () => {
   showBackToTop.value = window.scrollY > 300
-}
-
-const subscribeNewsletter = async () => {
-  isSubscribing.value = true
-
-  try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    console.log('Newsletter subscription:', newsletterEmail.value)
-    newsletterEmail.value = ''
-    // You could show a success message here
-  } catch (error) {
-    console.error('Newsletter subscription error:', error)
-  } finally {
-    isSubscribing.value = false
-  }
-}
-
-const showLegalModal = (type) => {
-  const content = {
-    legal: {
-      title: 'Mentions légales',
-      content: 'Informations légales concernant ce site web...'
-    },
-    privacy: {
-      title: 'Politique de confidentialité',
-      content: 'Politique concernant la protection de vos données personnelles...'
-    },
-    terms: {
-      title: 'Conditions d\'utilisation',
-      content: 'Conditions d\'utilisation de ce site web...'
-    }
-  }
-
-  modalContent.value = content[type]
-  showModal.value = true
-}
-
-const closeModal = () => {
-  showModal.value = false
 }
 
 onMounted(() => {
