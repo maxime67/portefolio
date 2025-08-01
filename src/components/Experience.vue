@@ -159,7 +159,7 @@ const experiences = ref([
       "Suivie de plus de 50 applications vers une architecture cloud",
       "Mise en place d'infrastructures as Code avec Ansible",
       "Intégration du déploiement dans une pipeline GitLab",
-      "Intération de cloud services au sein de l'architecture",
+      "Intégration de cloud services au sein de l'architecture",
       "Rédaction de documentation utilisateur"
     ],
     technologies: [
