@@ -1,35 +1,27 @@
 <template>
   <footer class="bg-gray-900 text-white">
-    <!-- Main Footer -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="">
+      <div class="border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <!-- Copyright -->
+            <div class="flex items-center space-x-4 text-gray-400">
+              <span>© {{ currentYear }} Maxime Heim. Tous droits réservés.</span>
+            </div>
 
-
-        <!-- Bottom Bar -->
-        <div class="border-tborder-gray-800">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <!-- Copyright -->
-              <div class="flex items-center space-x-4 text-gray-400">
-                <span>© {{ currentYear }} Maxime Heim. Tous droits réservés.</span>
+            <!-- Tech Stack Badge -->
+            <div class="flex items-center space-x-2 text-gray-400 text-sm">
+              <span>Fait avec</span>
+              <div class="flex items-center space-x-1">
+                <span class="text-green-400">💚</span>
+                <span>Vue.js</span>
               </div>
-
-              <!-- Tech Stack Badge -->
-              <div class="flex items-center space-x-2 text-gray-400 text-sm">
-                <span>Fait avec</span>
-                <div class="flex items-center space-x-1">
-                  <span class="text-green-400">💚</span>
-                  <span>Vue.js</span>
-                </div>
-                <span>&</span>
-                <div class="flex items-center space-x-1">
-                  <span class="text-blue-400">🎨</span>
-                  <span>Tailwind CSS</span>
-                </div>
+              <span>&</span>
+              <div class="flex items-center space-x-1">
+                <span class="text-blue-400">🎨</span>
+                <span>Tailwind CSS</span>
               </div>
             </div>
           </div>
-        </div>
 
         <!-- Back to Top Button -->
         <button
