@@ -1,174 +1,260 @@
 <template>
-<div class="min-h-screen bg-gray-50">
-<!-- Projects Section -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <h2 class="text-3xl font-bold text-gray-900 mb-8">Mes Expériences</h2>
+  <section id="experience" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Mes Expériences</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mt-6"></div>
+      </div>
 
-  <div class="space-y-6">
-    <div
-        v-for="project in projects"
-        :key="project.id"
-        class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-    >
-      <div class="md:flex">
-        <!-- Image -->
-        <div class="md:w-1/3">
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Timeline Line -->
+        <div
+            class="absolute left-4 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600"></div>
+
+        <!-- Experience Items -->
+        <div class="space-y-12">
           <div
-              class="h-48 md:h-full bg-gradient-to-br from-blue-200 to-blue-400 flex items-center justify-center">
-            <div class="text-white text-center">
-              <img :src="`/assets/${project.icon}.svg`" :alt="project.icon">
+              v-for="(experience, index) in experiences"
+              :key="experience.id"
+              :class="[
+              'relative flex items-center',
+              index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+            ]"
+          >
+            <!-- Timeline Dot -->
+            <div
+                class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center">
+              <div class="w-2 h-2 bg-white rounded-full"></div>
             </div>
-          </div>
-        </div>
 
-        <!-- Content -->
-        <div class="md:w-2/3 p-6">
-          <div class="flex justify-between items-start mb-3">
-            <h3 class="text-xl font-semibold text-gray-900">{{ project.title }}</h3>
-            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
-                  :class="getStatusClass(project.status)">
-                  {{ project.status }}
-                </span>
-          </div>
-
-          <p class="text-gray-600 mb-4">{{ project.description }}</p>
-
-          <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                    v-for="tech in project.technologies"
-                    :key="tech"
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
-                >
-                  {{ tech }}
-                </span>
-          </div>
-
-          <div class="flex space-x-4">
-                <span
-                    v-for="url in project.urls"
-                    :key="url"
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
-                >
-                <a
-                    v-if="url.githubUrl"
-                    :href="url.githubUrl"
-                    target="_blank"
-                    class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-                >
-                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                          d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                          clip-rule="evenodd"></path>
-                  </svg>
-                  {{ url.name }}
-                </a>
-                  </span>
-            <a
-                v-if="project.demoUrl"
-                :href="project.demoUrl"
-                target="_blank"
-                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+            <!-- Content Card -->
+            <div
+                :class="[
+                'w-full md:w-5/12 ml-16 md:ml-0',
+                index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
+              ]"
             >
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
-              Démo
-            </a>
+              <div
+                  class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group border border-gray-100">
+                <!-- Header -->
+                <div class="relative bg-gradient-to-br from-blue-600 to-purple-700 p-6 text-white">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-4">
+                      <div
+                          class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl border border-white/30">
+                        {{ experience.icon }}
+                      </div>
+                      <div>
+                        <h3 class="text-xl font-bold mb-1">{{ experience.title }}</h3>
+                        <p class="text-blue-100 text-sm">{{ experience.company }}</p>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <div class="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 border border-white/30">
+                        <span class="text-sm font-medium">{{ experience.period }}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Status Badge -->
+                  <div class="flex items-center justify-between">
+                    <span
+                        :class="[
+                        'inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold',
+                        getStatusStyle(experience.status)
+                      ]"
+                    >
+                      <div class="w-2 h-2 rounded-full mr-2" :class="getStatusDot(experience.status)"></div>
+                      {{ experience.status }}
+                    </span>
+                    <div class="text-blue-100 text-sm">{{ experience.location }}</div>
+                  </div>
+
+                  <!-- Decorative Elements -->
+                  <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <div class="w-full h-full bg-white rounded-full transform translate-x-16 -translate-y-16"></div>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-6">
+                  <p class="text-gray-600 mb-6 leading-relaxed">
+                    {{ experience.description }}
+                  </p>
+
+                  <!-- Key Achievements -->
+                  <div class="mb-6">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Réalisations clés</h4>
+                    <ul class="space-y-2">
+                      <li
+                          v-for="achievement in experience.achievements"
+                          :key="achievement"
+                          class="flex items-start space-x-2 text-sm text-gray-600"
+                      >
+                        <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor"
+                             viewBox="0 0 20 20">
+                          <path fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>{{ achievement }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Technologies -->
+                  <div class="mb-6">
+                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Technologies utilisées</h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                          v-for="tech in experience.technologies"
+                          :key="tech"
+                          class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-200"
+                      >
+                        {{ tech }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Context/Team Info -->
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span class="text-gray-500">Type de mission</span>
+                        <div class="font-medium text-gray-900">{{ experience.type }}</div>
+                      </div>
+                      <div v-if="experience.teamSize">
+                        <span class="text-gray-500">Équipe</span>
+                        <div class="font-medium text-gray-900">{{ experience.teamSize }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
-</div>
+  </section>
 </template>
 
 <script setup>
 import {ref} from 'vue'
-import Projects from "@/components/Projects.vue";
 
-// Sample projects data
-const projects = ref([
+const experiences = ref([
   {
     id: 1,
-    title: "Migrations d'applications vers une architecture cloud",
-    description: "Conseil et support envers des directions d'applications concernant la migration de leur infrastructure vers une architecture cloud, dévelopement d'infrastructure as code, intégration de cloud services.",
-    type: "Déploiement",
-    icon: "ansible",
+    title: "Consultant DevOps",
+    company: "Capgemini",
+    period: "2024 - Présent",
+    location: "Rennes, France",
+    type: "Support",
     status: "En cours",
-    technologies: ["Ansible", "Terraform", "Gitlab-ci", "ELK", "Hashicorp Vault", "Red Hat", "Bash", "Ansible automation Plateform", "Architecture", "Support client", "SonarQube"],
-    urls: [
+    icon: "🚀",
+    description: "Conseil et support envers des directions d'applications pour la migration de leur infrastructure vers une architecture cloud, dévelopement d'infrastructure as code, intégration de cloud services.",
+    achievements: [
+      "Suivie de plus de 50 applications vers une architecture cloud",
+      "Mise en place d'infrastructures as Code avec Ansible",
+      "Intégration du déploiement dans une pipeline GitLab",
+      "Intération de cloud services au sein de l'architecture",
+      "Rédaction de documentation utilisateur"
     ],
-    demoUrl:
-        null
+    technologies: [
+      "Ansible", "Terraform", "GitLab CI",
+      "ELK Stack", "Hashicorp Vault", "Red Hat", "Bash", "SonarQube"
+    ],
+    teamSize: "4-7 personnes"
   },
   {
     id: 2,
     title: "Traitement de données",
-    description: "Au sein d'un projet à ambition recherche, traitement de données satellitaires, calcul d'indices, mise en place d'un modèle de clustering. ",
-    type: "Data Science",
-    icon: "python",
+    company: "Capgemini",
+    period: "2023 - 2024",
+    location: "Rennes, France",
+    type: "Projet R&D",
     status: "Terminé",
-    technologies: ["Python", "Numpy", "Panda", "Scikit-learn", "Google Earth Engine", "javascript"],
-    urls: [
+    icon: "🛰️",
+    description: "Au sein d'un projet à ambition recherche, traitement de données satellitaires, calcul d'indices, mise en place d'un modèle de clustering",
+    achievements: [
+      "Traitement de données, calcul d'indices de reflectance de lumière",
+      "Utilisation de modèles de clustering",
+      "Migration de traitement depuis Google Earth Engine vers du python local",
+      "Rédaction de papier décrivant les méthodologies appliquées",
     ],
-    demoUrl:
-        null
+    technologies: [
+      "Python", "NumPy", "Pandas", "Scikit-learn", "Google Earth Engine",
+      "JavaScript"
+    ],
+    teamSize: "2-3 personnes"
   },
   {
     id: 3,
-    title: "Développement d'un outil de visualisation de données cartographiques",
-    description: "Au sein d'un projet à ambition recherche, architecture et développement d'un outil de visualisation de données cartographiques.",
-    type: "Développement",
-    icon: "leaflet",
+    title: "Visualisation de données cartographiques.",
+    company: "Capgemini",
+    period: "2023 - 2024",
+    location: "Rennes, France",
+    type: "Projet R&D",
     status: "Terminé",
-    technologies: ["MySQL", "VueJS", "Spring boot", "Leaflet"],
-    urls: [
+    icon: "⚡",
+    description: "Au sein d'un projet à ambition recherche, architecture et développement d'un outil de visualisation de données cartographiques.",
+    achievements: [
+      "Architecture N-Tier",
+      "Développement d'un client VueJS utilisant Lealfet pour afficher des fond de cartes",
+      "Developpement d'une API Spring boot",
+      "Stockage, conversion et traiement de données SIG"
     ],
-    demoUrl:
-        null
+    technologies: [
+      "MySQL", "VueJS", "Spring boot", "Leaflet"
+    ],
+    teamSize: "1-2 personnes"
   },
   {
     id: 4,
-    title: "Développement d'un outil de calcul et de gestion d'écocontribution",
-    description: "Durant un stage dans la société 'Sodise' développement en PHP natif d'un outil permettant le calcul d'écocontribution",
-    type: "Développement",
-    icon: "php",
+    title: "Outil de calcul et de gestion d'écocontribution",
+    company: "La Sodise",
+    period: "2020 - 2021",
+    location: "Stage - Châteaulin, France",
+    type: "Stage développement",
     status: "Terminé",
-    technologies: ["PHP"],
-    urls: [
+    icon: "🌐",
+    description: "Développement en PHP natif d'un outil de calcul d'écocontribution",
+    achievements: [
+      "PHP",
+      "Requête SQL"
     ],
-    demoUrl:
-        null
-  },
-  {
-    id: 5,
-    title: "Création d'interfaces WordPress",
-    description: "Dans le cadre d'un stage à la communauté de communes de Concarneau, développement d'une interface WordPress dédié à l'intranet",
-    type: "Intégration",
-    icon: "wordpress",
-    status: "Terminé",
-    technologies: ["WordPress"],
-    urls: [
+    technologies: [
+      "PHP", "SQL Server", "SSMS"
     ],
-    demoUrl:
-        null
-  },
-
+    teamSize: "2 personne"
+  }
 ])
 
-// Helper function for status styling
-const getStatusClass = (status) => {
-  switch (status) {
-    case 'Terminé':
-      return 'bg-green-100 text-green-800'
-    case 'En cours':
-      return 'bg-blue-100 text-blue-800'
-    case 'Planifié':
-      return 'bg-yellow-100 text-yellow-800'
-    default:
-      return 'bg-gray-100 text-gray-800'
+const stats = ref({
+  totalExperience: 3,
+  projectsDelivered: 25,
+  deploymentsManaged: 150,
+  technologiesMastered: 30
+})
+
+// Helper functions for styling
+const getStatusStyle = (status) => {
+  const styles = {
+    'En cours': 'bg-blue-500/20 text-blue-200',
+    'Terminé': 'bg-green-500/20 text-green-200',
+    'Planifié': 'bg-yellow-500/20 text-yellow-200'
   }
+  return styles[status] || 'bg-gray-500/20 text-gray-200'
+}
+
+const getStatusDot = (status) => {
+  const dots = {
+    'En cours': 'bg-blue-400',
+    'Terminé': 'bg-green-400',
+    'Planifié': 'bg-yellow-400'
+  }
+  return dots[status] || 'bg-gray-400'
 }
 </script>
