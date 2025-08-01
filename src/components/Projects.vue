@@ -91,10 +91,39 @@ import Projects from "@/components/Projects.vue";
 
 // Sample projects data
 const projects = ref([
+
   {
     id: 1,
-    title: "Application de suivie de vulnérablité CVE",
-    description: "Développement et déploiement d'une application permettant le suivie de vulnérabilité sur des technologies et éditeurs logiciels",
+    title: "Sample de déploiement kubernetes",
+    description: "Repos github contenant des samples de manifets kubernetes, utilisé pour une montée en compétence personnel sur le sujet K8S",
+    type: "Devops",
+    icon: "☸️",
+    status: "En cours",
+    technologies: ["Kubernetes"],
+    urls: [
+      {githubUrl: "https://github.com/maxime67/One-client", name: "Client"},
+    ],
+    demoUrl:
+        null
+  },
+  {
+    id: 1,
+    title: "Projet de déploiement d'une application de suivie de vulnérabilité",
+    description: "Projet de déploiement, contenant des playbooks et roles ansible permettant le déploiement d'un client VueJS et d'une API ExpressJS",
+    type: "Devops",
+    icon: "☸️",
+    status: "Terminé",
+    technologies: ["Ansible"],
+    urls: [
+      {githubUrl: "https://github.com/maxime67/One-deploy", name: "Projet"},
+    ],
+    demoUrl:
+        null
+  },
+  {
+    id: 1,
+    title: "Application de suivi de vulnérablités CVE",
+    description: "Développement et déploiement d'une application permettant le suivi de vulnérabilités sur des technologies et éditeurs logiciels",
     type: "Développement",
     icon: "☸️",
     status: "Terminé",
@@ -110,9 +139,9 @@ const projects = ref([
   {
     id: 2,
     title:
-        "Application permettant d'exposer de la documentation",
+        "Application de classification de documentation technique",
     description:
-        "Application web de classification de documentation, permet d'exposer de la documentation Notion classée par catégorie",
+        "Application web de classification de documentation, permet d'exposer de la documentation Notion classée par catégori.e",
     type:
         "Développement",
     icon:
@@ -153,22 +182,43 @@ const projects = ref([
   {
     id: 4,
     title:
-        "Dashboard de Monitoring React",
+        "Outils d'océrisation et de traitement d'images",
     description:
-        "Interface de monitoring en temps réel construite avec React et D3.js. Intégration avec des APIs de métriques et alerting automatisé.",
+        "Offre la possbilité de traiter des screenshots, d'insérer dans une base de données MongoDB, des données financières provenants du jeux Dofus",
     type:
-        "Frontend",
+        "Développement",
     icon:
         "📊",
     status:
-        "Planifié",
+        "Terminé",
     technologies:
-        ["React", "D3.js", "WebSocket", "Material-UI", "Jest"],
-    githubUrl:
-        null,
+        ["Python", "pytesseract", "OpenAI API", "Material-UI", "Jest"],
+    urls: [
+      {githubUrl: "https://github.com/maxime67/img_to_text_dofus", name: "Client"},
+    ],
     demoUrl:
         null
-  }
+  },
+  {
+    id: 5,
+    title:
+        "Outils de partage d'images",
+    description:
+        "Applications web permettant le partage d'images, correspondants à des 'build' dans le jeux escape from tarkov",
+    type:
+        "Développement",
+    icon:
+        "📊",
+    status:
+        "Terminé",
+    technologies:
+        ["Symfony", "Doctrine", "PHP"],
+    urls: [
+      {githubUrl: "https://github.com/maxime67/modding.eft", name: "Application"},
+    ],
+    demoUrl:
+        null
+  },
 ])
 
 // Helper function for status styling

@@ -2,7 +2,7 @@
 <div class="min-h-screen bg-gray-50">
 <!-- Projects Section -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <h2 class="text-3xl font-bold text-gray-900 mb-8">Mes Experiences</h2>
+  <h2 class="text-3xl font-bold text-gray-900 mb-8">Mes Expériences</h2>
 
   <div class="space-y-6">
     <div
@@ -16,7 +16,7 @@
           <div
               class="h-48 md:h-full bg-gradient-to-br from-blue-200 to-blue-400 flex items-center justify-center">
             <div class="text-white text-center">
-              <img :src="`../public/assets/${project.icon}.svg`" :alt="project.icon">
+              <img :src="`/assets/${project.icon}.svg`" :alt="project.icon">
             </div>
           </div>
         </div>
@@ -92,8 +92,8 @@ import Projects from "@/components/Projects.vue";
 const projects = ref([
   {
     id: 1,
-    title: "Migrations d'application vers une architecture cloud",
-    description: "Conseil et support envers des directions d'applications concernant la migration de leur infrastructure vers une architecture cloud, création d'infrastructure as code.",
+    title: "Migrations d'applications vers une architecture cloud",
+    description: "Conseil et support envers des directions d'applications concernant la migration de leur infrastructure vers une architecture cloud, dévelopement d'infrastructure as code, intégration de cloud services.",
     type: "Déploiement",
     icon: "ansible",
     status: "En cours",
@@ -106,7 +106,7 @@ const projects = ref([
   {
     id: 2,
     title: "Traitement de données",
-    description: "Au sein d'un projet à ambition recherche, traitement de données satelitaires, calcul d'indices, mise en place d'un model de clustering. ",
+    description: "Au sein d'un projet à ambition recherche, traitement de données satellitaires, calcul d'indices, mise en place d'un modèle de clustering. ",
     type: "Data Science",
     icon: "python",
     status: "Terminé",
@@ -117,7 +117,7 @@ const projects = ref([
         null
   },
   {
-    id: 2,
+    id: 3,
     title: "Développement d'un outil de visualisation de données cartographiques",
     description: "Au sein d'un projet à ambition recherche, architecture et développement d'un outil de visualisation de données cartographiques.",
     type: "Développement",
@@ -131,8 +131,8 @@ const projects = ref([
   },
   {
     id: 4,
-    title: "Développement d'un outils de calcul et de gestion d'écocontribution",
-    description: "Durant un stage dans la société 'Sodise' développement en PHP natif d'un outils permettant le calcul d'écocontribution",
+    title: "Développement d'un outil de calcul et de gestion d'écocontribution",
+    description: "Durant un stage dans la société 'Sodise' développement en PHP natif d'un outil permettant le calcul d'écocontribution",
     type: "Développement",
     icon: "php",
     status: "Terminé",
@@ -145,7 +145,7 @@ const projects = ref([
   {
     id: 5,
     title: "Création d'interfaces WordPress",
-    description: "Dans le cadre d'un stage à la communauté de commune de Concarneau, développement d'une interface WordPress dédié à l'intranet",
+    description: "Dans le cadre d'un stage à la communauté de communes de Concarneau, développement d'une interface WordPress dédié à l'intranet",
     type: "Intégration",
     icon: "wordpress",
     status: "Terminé",
