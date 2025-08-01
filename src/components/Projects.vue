@@ -147,7 +147,7 @@ const projects = ref([
     status: "En cours",
     technologies: ["Kubernetes", "Docker", "YAML", "kubectl", "K3S", "Manifest"],
     urls: [
-      { githubUrl: "https://github.com/maxime67/One-client", name: "Repo GitHub" }
+      { githubUrl: "https://github.com/maxime67/manifest_k3s_sample", name: "Repo GitHub" }
     ],
     demoUrl: null
   },
