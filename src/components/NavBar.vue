@@ -151,18 +151,6 @@ onUnmounted(() => {
           >
             {{ item.name }}
           </a>
-
-          <button
-              @click="scrollToSection('contact')"
-              :class="[
-              'w-full text-left px-4 py-3 rounded-lg text-base font-bold transition-all duration-200',
-              isScrolled
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-white text-blue-900 hover:bg-blue-50'
-            ]"
-          >
-            Contact
-          </button>
         </div>
       </div>
     </div>

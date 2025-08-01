@@ -47,7 +47,7 @@
                         {{ experience.icon }}
                       </div>
                       <div>
-                        <h3 class="text-xl font-bold mb-1">{{ experience.title }}</h3>
+                        <h3 class="font-bold mb-1 ">{{ experience.title }}</h3>
                         <p class="text-blue-100 text-sm">{{ experience.company }}</p>
                       </div>
                     </div>
@@ -213,7 +213,7 @@ const experiences = ref([
   },
   {
     id: 4,
-    title: "Outil de calcul et de gestion d'écocontribution",
+    title: "Calcul et gestion d'écocontribution",
     company: "La Sodise",
     period: "2020 - 2021",
     location: "Stage - Châteaulin, France",
