@@ -4,9 +4,6 @@
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">Mes Projets</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Découvrez mes projets DevOps et développement, alliant infrastructure moderne et solutions techniques innovantes
-        </p>
       </div>
 
       <!-- Filter Tabs -->
