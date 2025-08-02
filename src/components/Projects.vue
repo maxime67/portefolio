@@ -223,7 +223,7 @@ const projects = ref([
   {
     id: 7,
     title: "Outils de partage d'images",
-    description: "Application web Symfony pour le partage communautaire d'images correspondants à des 'build' dans le jeux escape from tarkov.",
+    description: "Application web Symfony pour le partage communautaire d'images correspondant à des 'build' dans le jeu escape from tarkov.",
     type: "Développement",
     icon: "🎮",
     status: "Terminé",

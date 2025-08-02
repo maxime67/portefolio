@@ -154,9 +154,9 @@ const experiences = ref([
     type: "Support",
     status: "En cours",
     icon: "🚀",
-    description: "Conseil et support envers des directions d'applications pour la migration de leur infrastructure vers une architecture cloud, dévelopement d'infrastructure as code, intégration de cloud services.",
+    description: "Conseil et support envers des directions d'applications pour la migration de leur infrastructure vers une architecture cloud, développement d'infrastructure as code, intégration de cloud services.",
     achievements: [
-      "Suivie de plus de 50 applications vers une architecture cloud",
+      "Suivi de plus de 50 applications vers une architecture cloud",
       "Mise en place d'infrastructures as Code avec Ansible",
       "Intégration du déploiement dans une pipeline GitLab",
       "Intégration de cloud services au sein de l'architecture",
@@ -202,9 +202,9 @@ const experiences = ref([
     description: "Au sein d'un projet à ambition recherche, architecture et développement d'un outil de visualisation de données cartographiques.",
     achievements: [
       "Architecture N-Tier",
-      "Développement d'un client VueJS utilisant Lealfet pour afficher des fond de cartes",
-      "Developpement d'une API Spring boot",
-      "Stockage, conversion et traiement de données SIG"
+      "Développement d'un client VueJS utilisant Leaflet pour afficher des fond de cartes",
+      "Développement d'une API Spring boot",
+      "Stockage, conversion et traitement de données SIG"
     ],
     technologies: [
       "MySQL", "VueJS", "Spring boot", "Leaflet"
